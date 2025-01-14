@@ -9,7 +9,7 @@ export default function Home() {
   ]);
 
   // Function to handle terminal input and maintain history
-  const handleTerminalInput = (input) => {
+  const handleTerminalInput = (input: string) => {
     const trimmedInput = input.trim().toLowerCase();
 
     // Append input as a command line in the terminal
