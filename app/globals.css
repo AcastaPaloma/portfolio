@@ -2,10 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --base-green: #16420E;
+  --text-dark: #153607;
+  --text-light: #F5F3E7;
+  --background-light: #FAF8EF;
+  --border-color: #DED5C5;
+  --hover-green: #A5B89A;
+  --link-gold: #D4B483;
 }
+
 
 @media (prefers-color-scheme: dark) {
   :root {
@@ -18,4 +27,20 @@ body {
   color: var(--foreground);
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
+  background-color: rgb(214, 196, 162);
+}
+
+@keyframes swooshDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.swoosh-appear {
+  animation: swooshDown 1s ease-out forwards;
 }
