@@ -5,7 +5,7 @@ import { TypeAnimation } from 'react-type-animation';
 
 export default function Home() {
   const [terminalLineData, setTerminalLineData] = useState([
-    <TerminalOutput>K:\Coding\portfolio\portfolio Type 'help' for commands.</TerminalOutput>,
+    <TerminalOutput>Type 'help' for commands.</TerminalOutput>,
   ]);
 
   // Function to handle terminal input and maintain history
@@ -25,7 +25,7 @@ export default function Home() {
         output = 'Available commands: help, about, links, clear';
         break;
       case 'about':
-        output = "Throat Goat";
+        output = "Currently hosting Piñata Pitch, a startup pitch competition. \nI'm a versatile team player, a polyglot, fluent in French, Mandarin, even Python. \nCurrently Intern @Neuropoly, Polytechnique Montréal.";
         break;
         case 'links':
           output = (
@@ -41,11 +41,15 @@ export default function Home() {
               <a href="https://www.instagram.com/kuanus_/" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'underline', color: 'blue' }}>
                 Instagram
               </a>
+              <br />
+              <a href="https://www.pinatapitch.tech" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'underline', color: 'blue' }}>
+                Piñata Pitch
+              </a>
             </>
           );
           break;
       case 'clear':
-        setTerminalLineData([]);
+        setTerminalLineData([<TerminalOutput>Available commands: help, about, links, clear</TerminalOutput>]);
         return;
       default:
         output = `Unknown command: '${input}'. Type 'help' for available commands.`;
@@ -61,30 +65,12 @@ export default function Home() {
   return (
     <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
       <header>
-        <TypeAnimation
-          sequence={[
-            'Meet a student.',
-            1000,
-            'Meet an aspiring MedxTech Innovator.',
-            1000,
-            'Meet a polyglot.',
-            1000,
-            'Hi, my name is Kuan.',
-            1000,
-          ]}
-          wrapper="span"
-          speed={25}
-          deletionSpeed={25}
-          style={{ fontSize: '5em', display: 'inline-block', fontFamily: 'Roboto', color: 'var(--text-dark)' }}
-          cursor={true}
-          repeat={0}
-        />
       </header>
 
       <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start w-[60%] p-2">
         <div className="terminal-container w-[100%]">
           <Terminal
-            name="Start hacking"
+            name="K:\Coding\portfolio\portfolio "
             colorMode={ColorMode.Light}
             onInput={handleTerminalInput}
             startingInputValue={" "}
