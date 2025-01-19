@@ -31,8 +31,16 @@ export default function Home() {
         output = 'Available commands: help, about, links, clear';
         break;
       case 'about':
-        output =
-          "Currently hosting Piñata Pitch, a startup pitch competition. \nI'm a versatile team player, a polyglot, fluent in French, Mandarin, even Python. \nCurrently Intern @Neuropoly, Polytechnique Montréal.";
+        output = (          
+        <>
+          Currently hosting Piñata Pitch, a startup pitch competition. 
+          <br />I'm a versatile team player, a polyglot, fluent in French, Mandarin, even Python. 
+          <br />Currently Intern @Neuropoly, Polytechnique Montréal. 
+          <br />
+          <a href="mailto:kuanyi.wang0906@gmail.com" style={{color: 'lightblue'}}><u>Contact me @kuanyi.wang0906@gmail.com</u></a>
+
+        </>
+        )
         break;
       case 'links':
         output = (
