@@ -37,7 +37,7 @@ export default function Home() {
           <br />I'm a versatile team player, a polyglot, fluent in French, Mandarin, even Python. 
           <br />Currently Intern @Neuropoly, Polytechnique Montréal. 
           <br />
-          <a href="mailto:kuanyi.wang0906@gmail.com" style={{color: 'lightblue'}}><u>Contact me @kuanyi.wang0906@gmail.com</u></a>
+          <a href="mailto:kuanyi.wang0906@gmail.com" style={{color: '#2bdfee'}}><u>Contact me @kuanyi.wang0906@gmail.com</u></a>
 
         </>
         )
@@ -49,7 +49,7 @@ export default function Home() {
               href="https://www.linkedin.com/in/kuan-yi-wang-443871319/"
               target="_blank"
               rel="noopener noreferrer"
-              style={{ textDecoration: 'underline', color: 'lightgreen' }}
+              style={{ textDecoration: 'underline', color: '#2bdfee' }}
             >
               LinkedIn
             </a>
@@ -58,7 +58,7 @@ export default function Home() {
               href="https://github.com/AcastaPaloma"
               target="_blank"
               rel="noopener noreferrer"
-              style={{ textDecoration: 'underline', color: 'lightgreen' }}
+              style={{ textDecoration: 'underline', color: '#2bdfee' }}
             >
               GitHub
             </a>
@@ -67,7 +67,7 @@ export default function Home() {
               href="https://www.instagram.com/kuanus_/"
               target="_blank"
               rel="noopener noreferrer"
-              style={{ textDecoration: 'underline', color: 'lightgreen' }}
+              style={{ textDecoration: 'underline', color: '#2bdfee' }}
             >
               Instagram
             </a>
@@ -76,7 +76,7 @@ export default function Home() {
               href="https://www.pinatapitch.tech"
               target="_blank"
               rel="noopener noreferrer"
-              style={{ textDecoration: 'underline', color: 'lightgreen' }}
+              style={{ textDecoration: 'underline', color: '#2bdfee' }}
             >
               Piñata Pitch
             </a>
@@ -84,7 +84,7 @@ export default function Home() {
             <a
               href="/resumeKYW.pdf"
               download="Kuan Yi Wang Resume"
-              style={{ textDecoration: 'underline', color: 'lightgreen' }}
+              style={{ textDecoration: 'underline', color: '#2bdfee' }}
             >
               View my resume
             </a>
