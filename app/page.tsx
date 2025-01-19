@@ -72,6 +72,14 @@ export default function Home() {
             >
               Piñata Pitch
             </a>
+            <br />
+            <a
+              href="/resumeKYW.pdf"
+              download="Kuan Yi Wang Resume"
+              style={{ textDecoration: 'underline', color: 'lightgreen' }}
+            >
+              View my resume
+            </a>
           </>
         );
         break;
@@ -79,6 +87,7 @@ export default function Home() {
         setTerminalLineData([
           <TerminalOutput>Available commands: help, about, links, clear</TerminalOutput>,
         ]);
+        setCommandHistory([]);
         return;
       default:
         output = `Unknown command: '${input}'. Type 'help' for available commands.`;
