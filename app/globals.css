@@ -28,7 +28,7 @@
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Arial, Helvetica, sans-serif !important;
   background-color: #252A33;
   position: relative;
   overflow: hidden !important; 
@@ -38,15 +38,8 @@ body {
 
 }
 
-.example::-webkit-scrollbar {
-  display: none !important;
-}
 
-.terminal-container {
-  overflow: hidden; /* Ensure no scrollbars appear */
-  scrollbar-width: none; /* Firefox */
-}
-
-.terminal-container::-webkit-scrollbar {
-  display: none !important; /* Chrome, Safari, and Edge */
+.react-terminal-line {
+  font-size: 2vh !important;
+  padding-left: 5vw;
 }
