@@ -31,11 +31,11 @@ export default function Home() {
         output = 'Available commands: help, about, links, clear';
         break;
       case 'about':
-        output = (          
+        output = (
         <>
-          Currently hosting Piñata Pitch, a startup pitch competition. 
-          <br />I'm a versatile team player, a polyglot, fluent in French, Mandarin, even Python. 
-          <br />Currently Intern @Neuropoly, Polytechnique Montréal. 
+          Currently hosting Piñata Pitch, a startup pitch competition.
+          <br />I'm a versatile team player, a polyglot, fluent in French, Mandarin, even Python.
+          <br />Currently Intern @Neuropoly, Polytechnique Montréal.
           <br />
           <a href="mailto:kuanyi.wang0906@gmail.com" style={{color: '#2bdfee'}}><u>Contact me @kuanyi.wang0906@gmail.com</u></a>
 
@@ -82,7 +82,7 @@ export default function Home() {
             </a>
             <br />
             <a
-              href="/resumeKYW.pdf"
+              href="/WANG_KUANYI.pdf"
               download="Kuan Yi Wang Resume"
               style={{ textDecoration: 'underline', color: '#2bdfee' }}
             >
