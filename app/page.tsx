@@ -1,17 +1,15 @@
 'use client';
 import React, { useState, useEffect } from 'react';
-import Terminal, { ColorMode, TerminalOutput } from 'react-terminal-ui';
 import { VirtualFileSystem } from '../lib/filesystem';
 import { ShellCommands } from '../lib/shell-commands';
+import { CustomTerminal } from '../components/CustomTerminal';
 
 // Wrapper component to handle ReactNode content
 const TerminalLine: React.FC<{ children: React.ReactNode; error?: boolean }> = ({ children, error }) => {
   return (
-    <TerminalOutput>
-      <div style={error ? { color: '#ff6b6b' } : undefined}>
-        {children}
-      </div>
-    </TerminalOutput>
+    <div style={error ? { color: '#ff6b6b' } : undefined}>
+      {children}
+    </div>
   );
 };
 
@@ -22,10 +20,14 @@ export default function Home() {
   const [currentInput, setCurrentInput] = useState<string>('');
   const [fs] = useState(() => new VirtualFileSystem());
   const [shell] = useState(() => new ShellCommands(fs));
+  const [currentPath, setCurrentPath] = useState<string>('/');
 
   // Initialize terminal with welcome message
   useEffect(() => {
     const initializeTerminal = async () => {
+      // Set initial path
+      setCurrentPath(fs.getCurrentPath());
+
       const welcomeResult = await shell.executeCommand('welcome');
       setTerminalLineData([
         <TerminalLine key="welcome">{welcomeResult.output}</TerminalLine>,
@@ -34,16 +36,23 @@ export default function Home() {
     };
 
     initializeTerminal();
-  }, [shell]);
+  }, [shell, fs]);
 
   // Function to handle terminal input and maintain history
   const handleTerminalInput = async (input: string) => {
     const trimmedInput = input.trim();
 
-    // Append input to terminal display
+    // Get current prompt for this command
+    const currentPath = fs.getCurrentPath();
+    const user = 'guest@kuan-portfolio';
+    const promptPrefix = `${user}:${currentPath}$`;
+
+    console.log('Current Prompt:', promptPrefix);
+
+    // Append input to terminal display with current path
     setTerminalLineData((prev) => [
       ...prev,
-      <TerminalLine key={`input-${prev.length}`}>{`> ${input}`}</TerminalLine>,
+      <TerminalLine key={`input-${prev.length}`}>{`${promptPrefix} ${input}`}</TerminalLine>,
     ]);
 
     // Add to command history
@@ -57,6 +66,11 @@ export default function Home() {
         <TerminalLine key="cleared">Terminal cleared. Type 'help' for available commands.</TerminalLine>
       ]);
       setCommandHistory([]);
+      // Update prompt after clearing
+      const newPath = fs.getCurrentPath();
+      const user = 'guest@kuan-portfolio';
+      setCurrentPath(newPath);
+      setCurrentPrompt(`${user}:${newPath}$`);
       return;
     }
 
@@ -73,6 +87,13 @@ export default function Home() {
           {result.output}
         </TerminalLine>,
       ]);
+
+      // Update prompt after command execution (especially for cd commands)
+      const newPath = fs.getCurrentPath();
+      const user = 'guest@kuan-portfolio';
+      setCurrentPath(newPath);
+      setCurrentPrompt(`${user}:${newPath}$`);
+
     } catch (error) {
       const errorKey = `error-${Date.now()}`;
       setTerminalLineData((prev) => [
@@ -122,17 +143,24 @@ export default function Home() {
     return `${user}:${currentPath}$`;
   };
 
+  // State to track current prompt for updates
+  const [currentPrompt, setCurrentPrompt] = useState(getPrompt());
+
+  // Update prompt when path changes
+  useEffect(() => {
+    const newPrompt = getPrompt();
+    setCurrentPrompt(newPrompt);
+    console.log('Prompt updated to:', newPrompt);
+  }, [currentPath]); // Update when current path changes
+
   return (
-    <div style={{ height: '100vh', backgroundColor: '#000' }}>
-      <Terminal
-        name={getPrompt()}
-        colorMode={ColorMode.Dark}
-        onInput={handleTerminalInput}
-        height="100vh"
-        startingInputValue={currentInput}
-      >
-        {terminalLineData}
-      </Terminal>
-    </div>
+    <CustomTerminal
+      prompt={currentPrompt}
+      onCommand={handleTerminalInput}
+      height="100vh"
+      commandHistory={commandHistory}
+    >
+      {terminalLineData}
+    </CustomTerminal>
   );
 }
