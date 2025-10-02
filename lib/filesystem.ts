@@ -280,22 +280,6 @@ Previous projects and internships available on LinkedIn!`,
             }
           }
         },
-        usr: {
-          name: 'usr',
-          type: 'directory',
-          children: {
-            bin: {
-              name: 'bin',
-              type: 'directory',
-              children: {}
-            }
-          }
-        },
-        tmp: {
-          name: 'tmp',
-          type: 'directory',
-          children: {}
-        }
       }
     };
   }
