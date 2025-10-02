@@ -7,11 +7,9 @@ import { CustomTerminal } from '../components/CustomTerminal';
 // Wrapper component to handle ReactNode content
 const TerminalLine: React.FC<{ children: React.ReactNode; error?: boolean }> = ({ children, error }) => {
   return (
-      <TerminalOutput>
-        <div style={error ? { color: '#ff6b6b' } : undefined}>
-            {children}
-          </div>
-      </TerminalOutput>
+    <div style={error ? { color: '#ff6b6b' } : undefined}>
+      {children}
+    </div>
   );
 };
 
@@ -156,16 +154,13 @@ export default function Home() {
   }, [currentPath]); // Update when current path changes
 
   return (
-    <div style={{ height: '100vh', backgroundColor: '#000', paddingBottom: '10%' }}>
-      <Terminal
-        name={getPrompt()}
-        colorMode={ColorMode.Dark}
-        onInput={handleTerminalInput}
-        height="100vh"
-        startingInputValue={currentInput}
-      >
-        {terminalLineData}
-      </Terminal>
-    </div>
+    <CustomTerminal
+      prompt={currentPrompt}
+      onCommand={handleTerminalInput}
+      height="100vh"
+      commandHistory={commandHistory}
+    >
+      {terminalLineData}
+    </CustomTerminal>
   );
 }
