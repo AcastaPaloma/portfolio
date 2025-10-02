@@ -7,11 +7,11 @@ import { ShellCommands } from '../lib/shell-commands';
 // Wrapper component to handle ReactNode content
 const TerminalLine: React.FC<{ children: React.ReactNode; error?: boolean }> = ({ children, error }) => {
   return (
-    <TerminalOutput>
-      <div style={error ? { color: '#ff6b6b' } : undefined}>
-        {children}
-      </div>
-    </TerminalOutput>
+      <TerminalOutput>
+        <div style={error ? { color: '#ff6b6b' } : undefined}>
+            {children}
+          </div>
+      </TerminalOutput>
   );
 };
 
@@ -123,7 +123,7 @@ export default function Home() {
   };
 
   return (
-    <div style={{ height: '100vh', backgroundColor: '#000' }}>
+    <div style={{ height: '100vh', backgroundColor: '#000', paddingBottom: '10%' }}>
       <Terminal
         name={getPrompt()}
         colorMode={ColorMode.Dark}
