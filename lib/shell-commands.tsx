@@ -76,7 +76,7 @@ export class ShellCommands {
           return this.examples();
         default:
           return {
-            output: `Command not found: '${command}'. Type 'help' for available commands.`,
+            output: `Command not found: '${command}'. Type 'help' or 'ls' to get started.`,
             error: true
           };
       }
@@ -90,9 +90,6 @@ export class ShellCommands {
 
   private help(): CommandResult {
     const helpContent = React.createElement('div', null,
-      React.createElement('div', {
-        style: { color: '#2bdfee', marginBottom: '10px' }
-      }, '📚 Available Commands:'),
       React.createElement('div', { style: { marginLeft: '10px' } },
         React.createElement('div', null,
           React.createElement('span', { style: { color: '#98fb98' } }, 'Navigation:')
@@ -135,7 +132,7 @@ export class ShellCommands {
         ),
         React.createElement('br'),
         React.createElement('div', { style: { color: '#ffb347' } },
-          '💡 Tip: Navigate to /notes_for_kuan to leave me a message!')
+          'Navigate to /notes_for_kuan to leave me a message')
       )
     );
 
@@ -577,40 +574,7 @@ export class ShellCommands {
       output: React.createElement('div', null,
         React.createElement('div', {
           style: { color: '#2bdfee', fontSize: '1.1em', marginBottom: '15px' }
-        }, '🚀 Welcome to Kuan\'s Terminal Portfolio!'),
-        React.createElement('div', { style: { marginBottom: '10px' } },
-          'This is an interactive terminal experience where you can explore my portfolio using real command-line tools.'
-        ),
-        React.createElement('div', { style: { color: '#98fb98', marginBottom: '10px' } }, 'Quick Start:'),
-        React.createElement('div', { style: { marginLeft: '15px', marginBottom: '10px' } },
-          React.createElement('div', null,
-            '• Type ',
-            React.createElement('code', { style: { color: '#ffb347' } }, 'help'),
-            ' to see all available commands'
-          ),
-          React.createElement('div', null,
-            '• Use ',
-            React.createElement('code', { style: { color: '#ffb347' } }, 'ls'),
-            ' to explore directories'
-          ),
-          React.createElement('div', null,
-            '• Try ',
-            React.createElement('code', { style: { color: '#ffb347' } }, 'cd /home/kuan'),
-            ' to visit my personal folder'
-          ),
-          React.createElement('div', null,
-            '• Check out ',
-            React.createElement('code', { style: { color: '#ffb347' } }, 'cd /portfolio'),
-            ' for my work'
-          ),
-          React.createElement('div', null,
-            '• Leave a note at ',
-            React.createElement('code', { style: { color: '#ffb347' } }, 'cd /notes_for_kuan')
-          )
-        ),
-        React.createElement('div', { style: { color: '#ffb347' } },
-          '💡 This terminal supports tab completion and command history!'
-        )
+        }, 'welcome to my terminal-styled portfolio, where i try to replicate a linux terminal experience as accurately as possible'),
       )
     };
   }

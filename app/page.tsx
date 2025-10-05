@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { VirtualFileSystem } from '../lib/filesystem';
 import { ShellCommands } from '../lib/shell-commands';
 import { CustomTerminal } from '../components/CustomTerminal';
+import { FloatingBadges } from '../components/FloatingBadges';
 
 // Wrapper component to handle ReactNode content
 const TerminalLine: React.FC<{ children: React.ReactNode; error?: boolean }> = ({ children, error }) => {
@@ -31,7 +32,7 @@ export default function Home() {
       const welcomeResult = await shell.executeCommand('welcome');
       setTerminalLineData([
         <TerminalLine key="welcome">{welcomeResult.output}</TerminalLine>,
-        <TerminalLine key="help-tip">Type 'help' for available commands.</TerminalLine>
+        <TerminalLine key="help-tip">Type 'help' or 'ls' to get started.</TerminalLine>
       ]);
     };
 
@@ -63,7 +64,7 @@ export default function Home() {
     // Handle special clear command
     if (trimmedInput.toLowerCase() === 'clear') {
       setTerminalLineData([
-        <TerminalLine key="cleared">Terminal cleared. Type 'help' for available commands.</TerminalLine>
+        <TerminalLine key="cleared">Terminal cleared. Type 'help' or 'ls' to get started.</TerminalLine>
       ]);
       setCommandHistory([]);
       // Update prompt after clearing
@@ -153,14 +154,43 @@ export default function Home() {
     console.log('Prompt updated to:', newPrompt);
   }, [currentPath]); // Update when current path changes
 
+  // Configure floating badges
+  const badges = [
+    {
+      id: 'pp-badge',
+      src: '/sprites/PP.gif',
+      alt: 'PP',
+      size: 100,
+      position: { top: '800px', right: '20px' }
+    },
+    {
+      id: 'htn-static-badge',
+      src: '/sprites/htn-static.png',
+      alt: 'PP',
+      size: 100,
+      position: { top: '600px', right: '20px' }
+    },
+    // Add more badges by uncommenting and customizing:
+    // {
+    //   id: 'custom-badge',
+    //   src: '/custom.gif',
+    //   alt: 'Custom',
+    //   size: 85,
+    //   position: { top: '360px', right: '20px' }
+    // }
+  ];
+
   return (
-    <CustomTerminal
-      prompt={currentPrompt}
-      onCommand={handleTerminalInput}
-      height="100vh"
-      commandHistory={commandHistory}
-    >
-      {terminalLineData}
-    </CustomTerminal>
+    <>
+      <CustomTerminal
+        prompt={currentPrompt}
+        onCommand={handleTerminalInput}
+        height="100vh"
+        commandHistory={commandHistory}
+      >
+        {terminalLineData}
+      </CustomTerminal>
+      <FloatingBadges badges={badges} />
+    </>
   );
 }
