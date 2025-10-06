@@ -14,7 +14,10 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Kuan Yi Wang",
-  description: "",
+  description: "Is it a bird? Is it a plane?",
+  icons: {
+    icon: "/heart.png",
+  },
 };
 
 export default function RootLayout({

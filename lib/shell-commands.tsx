@@ -574,7 +574,7 @@ export class ShellCommands {
       output: React.createElement('div', null,
         React.createElement('div', {
           style: { color: '#2bdfee', fontSize: '1.1em', marginBottom: '15px' }
-        }, 'welcome to my terminal-styled portfolio, where i try to replicate a linux terminal experience as accurately as possible'),
+        }, '✨ Seeking Summer 2026 tech internships. Dig into my portfolio!'),
       )
     };
   }
