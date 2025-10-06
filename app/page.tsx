@@ -165,9 +165,9 @@ export default function Home() {
     },
     {
       id: 'htn-static-badge',
-      src: '/sprites/htn-static.png',
+      src: '/sprites/htn.gif',
       alt: 'PP',
-      size: 100,
+      size: 200,
       position: { top: '600px', right: '20px' }
     },
     // Add more badges by uncommenting and customizing:
