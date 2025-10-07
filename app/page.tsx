@@ -168,14 +168,14 @@ export default function Home() {
       src: '/sprites/htn.gif',
       alt: 'PP',
       size: 200,
-      position: { top: '600px', right: '20px' }
+      position: { top: '250px', right: '20px' }
     },
     {
       id: 'python-badge',
       src: '/sprites/python.gif',
       alt: 'PP',
       size: 200,
-      position: { top: '600px', right: '20px' }
+      position: { top: '400px', right: '100px' }
     },
     // Add more badges by uncommenting and customizing:
     // {
