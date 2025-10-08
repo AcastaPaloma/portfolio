@@ -181,7 +181,7 @@ export default function Home() {
       id: 'repair-badge',
       src: '/sprites/repair.gif',
       alt: 'REPAIR',
-      size: 300,
+      size: 250,
       position: { top: '550px', right: '20px' }
     },
     // Add more badges by uncommenting and customizing:
