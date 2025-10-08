@@ -166,16 +166,23 @@ export default function Home() {
     {
       id: 'htn-static-badge',
       src: '/sprites/htn.gif',
-      alt: 'PP',
+      alt: 'HTN',
       size: 200,
       position: { top: '250px', right: '20px' }
     },
     {
       id: 'python-badge',
       src: '/sprites/python.gif',
-      alt: 'PP',
+      alt: 'PY',
       size: 200,
       position: { top: '400px', right: '100px' }
+    },
+    {
+      id: 'repair-badge',
+      src: '/sprites/repair.gif',
+      alt: 'REPAIR',
+      size: 300,
+      position: { top: '550px', right: '20px' }
     },
     // Add more badges by uncommenting and customizing:
     // {
